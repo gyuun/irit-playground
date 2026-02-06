@@ -1,0 +1,5 @@
+s = sphere(vector(1,1,1),1);
+
+save("result.itd", s);
+
+exit();

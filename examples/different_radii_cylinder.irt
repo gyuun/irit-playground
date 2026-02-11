@@ -1,0 +1,4 @@
+c1 = circle( vector( 0, 0, 0 ), 1 );
+c2 = circle( vector( 0, 0, 1 ), 0.5 );
+srf = ruledsrf( c1, c2 );
+view( srf, 1 );

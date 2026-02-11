@@ -1,0 +1,2 @@
+C = CYLIN(vector(0,0,0), vector(0,0,1), 1, 0);
+view(C,1);

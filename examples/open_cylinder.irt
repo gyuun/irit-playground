@@ -1,0 +1,11 @@
+# Create a cylinder with open top and bottom
+# Center: (0, 0, 0)
+# Direction: (0, 0, 1) - along Z axis
+# Radius: 1
+# Caps: 0 - no caps (open top and bottom)
+
+OpenCylinder = CYLIN( vector( 0, 0, 0 ), vector( 0, 0, 1 ), 1, 0 );
+
+# Visualize the model
+view( OpenCylinder, 0 );
+

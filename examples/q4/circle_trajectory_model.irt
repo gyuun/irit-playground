@@ -1,0 +1,8 @@
+c = circle( vector(0,0,0), 0.5 );
+# Rotate circle to be perpendicular to the vector (1,1,1)
+c = c * rot(vector(-1, 1, 0), 54.7356);
+# Move circle to the starting point
+c = c * trans(vector(-1, -1, -1));
+# Extrude along the vector (2,2,2) which goes from (-1,-1,-1) to (1,1,1)
+model = extrude( c, vector(2, 2, 2), 0 );
+view(model, 1);

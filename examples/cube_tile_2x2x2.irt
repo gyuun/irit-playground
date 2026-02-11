@@ -1,0 +1,27 @@
+#
+# Tiling a cube with 2x2x2 resolution.
+#
+
+# Step 1: Define an arbitrary cube as a trivariate.
+# We create a unit cube and rotate it.
+CubeTV = tbezier( list( 
+    list( 
+        list( ctlpt( E3, 0, 0, 0 ), ctlpt( E3, 1, 0, 0 ) ),
+        list( ctlpt( E3, 0, 1, 0 ), ctlpt( E3, 1, 1, 0 ) )
+    ),
+    list( 
+        list( ctlpt( E3, 0, 0, 1 ), ctlpt( E3, 1, 0, 1 ) ),
+        list( ctlpt( E3, 0, 1, 1 ), ctlpt( E3, 1, 1, 1 ) )
+    )
+) ) * rotx( 15 ) * roty( 15 );
+
+# Step 2: Define a tile. A smaller box to make the tiling visible.
+Tile = box( vector( 0.1, 0.1, 0.1 ), 0.8, 0.8, 0.8 );
+
+# Step 3: Apply regular tiling using MICROSTRCT.
+TiledCube = microstrct( CubeTV, 1, 
+    list( Tile, 0, 0, TRUE, list( 2, 2, 2 ), 
+    FALSE, 1.0, 1.0, 0, FALSE, FALSE ) );
+
+# Step 4: Visualization
+view( TiledCube, 0 );

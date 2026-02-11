@@ -1,0 +1,4 @@
+# 중심 (1,1,1), 반지름 3인 구 생성
+sphere_obj = SPHERE( vector( 1, 1, 1 ), 3 );
+SAVE( "sphere", sphere_obj );
+exit();

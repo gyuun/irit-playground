@@ -1,0 +1,20 @@
+# Define the resolution
+resolution = 2;
+tile_size = 1;
+
+# Create a list to hold all the tiles
+all_tiles = nil();
+
+# Loop through x, y, and z to create and place tiles
+for (i = 0, 1, resolution - 1,
+    for (j = 0, 1, resolution - 1,
+        for (k = 0, 1, resolution - 1,
+            snoc( box( vector( 0, 0, 0 ), tile_size, tile_size, tile_size ) *
+                  trans( vector( i * tile_size, j * tile_size, k * tile_size ) ),
+                  all_tiles )
+        )
+    )
+);
+
+# View the final object
+view( all_tiles, 1 );

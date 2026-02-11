@@ -1,0 +1,5 @@
+CIR  = PCIRCLE(vector(0,0,0), 1);
+CPt = CTLPT(e3, -1,-1,-1) + CTLPT(e3, 1, 1, 1);
+S = SWEEPSRF(CIR, CPt, OFF);
+
+view(S, 1);

@@ -1,0 +1,30 @@
+#
+# Cup model in IRIT
+#
+
+# Set resolution for smoother models
+resolution = 20;
+
+# Define the outer part of the cup body
+# Center at (0, 0, 0), direction (height) is (0, 0, 1.2), radius 0.5
+# 3 means both bottom and top caps (though top will be hollowed)
+CylOuter = CYLIN(vector(0, 0, 0), vector(0, 0, 1.2), 0.5, 3);
+
+# Define the inner part to be hollowed out
+# Starts slightly above the base (0.1) and goes higher than the outer part (1.3)
+# Radius 0.45 leaves a wall thickness of 0.05
+CylInner = CYLIN(vector(0, 0, 0.1), vector(0, 0, 1.3), 0.45, 3);
+
+# Subtract inner cylinder from outer cylinder to make the hollow body
+CupBody = CylOuter - CylInner;
+
+# Define the handle using a torus
+# Center at (0.6, 0, 0.6), Normal along Y axis (0, 1, 0)
+# Major radius 0.3, Minor radius 0.07
+Handle = TORUS(vector(0.6, 0, 0.6), vector(0, 1, 0), 0.3, 0.07);
+
+# Union the body and the handle
+Cup = CupBody + Handle;
+
+# Visualize the result
+view(Cup, 1);

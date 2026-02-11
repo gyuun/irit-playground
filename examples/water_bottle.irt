@@ -1,0 +1,36 @@
+# Simple water bottle using surface of revolution
+
+# Define the profile of the bottle body as a B-spline curve
+# The curve is in the XZ plane (Y=0)
+bottle_profile = cbspline( 3,
+    list( ctlpt( e3, 0, 0, 0 ),
+          ctlpt( e3, 0.5, 0, 0 ),
+          ctlpt( e3, 0.6, 0, 2 ),
+          ctlpt( e3, 0.6, 0, 6 ),
+          ctlpt( e3, 0.5, 0, 7 ),
+          ctlpt( e3, 0.2, 0, 7.5 ),
+          ctlpt( e3, 0.2, 0, 8 ) ),
+    list( KV_OPEN ) );
+
+# Create the bottle body by revolving the profile around the Z-axis
+bottle_body = surfrev( bottle_profile );
+
+# Define the profile for the cap
+cap_profile = cbspline( 3,
+    list( ctlpt( e3, 0, 0, 8 ),
+          ctlpt( e3, 0.25, 0, 8 ),
+          ctlpt( e3, 0.25, 0, 8.5 ),
+          ctlpt( e3, 0, 0, 8.5 ) ),
+    list( KV_OPEN ) );
+
+# Create the cap
+cap = surfrev( cap_profile );
+
+# Combine the body and the cap into one object
+water_bottle = list( bottle_body, cap );
+
+# Assign color
+attrib( water_bottle, "color", BLUE );
+
+# View the final object
+view( water_bottle, 1 );

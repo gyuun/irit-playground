@@ -1,0 +1,17 @@
+#
+# Circle sweep from (-1,-1,-1) to (1,1,1)
+#
+
+# Define cross section: a circle in the XY plane
+circ = circle( vector( 0, 0, 0 ), 0.3 );
+
+# Define axis: a linear curve from (-1, -1, -1) to (1, 1, 1)
+axis = cbezier( list( ctlpt( E3, -1, -1, -1 ), 
+                      ctlpt( E3, 1, 1, 1 ) ) );
+
+# Sweep the circle along the axis
+# sweepSrf approximates the sweep of a cross-section along an axis
+swp = sweepSrf( circ, axis, OFF );
+
+# Visualize the result
+view( swp, 1 );

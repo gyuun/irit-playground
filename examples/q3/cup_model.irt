@@ -1,0 +1,14 @@
+c = cbezier( list(point(0, 0, 0), point(1, 0, 1), point(1.2, 0, 3), point(1, 0, 4)) );
+cup_body = surfrev(c);
+
+# Handle cross-section
+handle_profile = circle( vector(1.2, 0, 2.5), 0.2 );
+
+# Revolve the handle profile to create a torus
+handle = surfrev( handle_profile );
+
+cup = cup_body + handle;
+
+color( cup, red );
+
+view( cup, 1 );

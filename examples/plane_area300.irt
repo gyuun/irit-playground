@@ -1,0 +1,11 @@
+# Create a planar polygon with area approximately 300
+# Rectangle: 15 x 20 = 300 (exact)
+
+V1 = vector( 0, 0, 0 );
+V2 = vector( 15, 0, 0 );
+V3 = vector( 15, 20, 0 );
+V4 = vector( 0, 20, 0 );
+
+planeObj = POLY( list( V1, V2, V3, V4 ), FALSE );
+
+view( planeObj, FALSE );

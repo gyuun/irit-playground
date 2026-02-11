@@ -1,0 +1,13 @@
+BOXTV = TV = TBEZIER( list(
+					list(
+						list( ctlpt(E3, -1, -1, -1), ctlpt(E3,  1, -1, -1) ),
+						list( ctlpt(E3, -1,  1, -1), ctlpt(E3,  1,  1, -1) ) ),
+					list(
+						list( ctlpt(E3, -1, -1,  1), ctlpt(E3,  1, -1,  1) ),
+						list( ctlpt(E3, -1,  1,  1), ctlpt(E3,  1,  1,  1) ) ) ) );
+
+FacePrm = list( 0.125, 0.0, 1.0, false, 1.0, 0.3, nil(), nil(), nil() );
+Tile = MICROTILE( 1, list( FacePrm, FacePrm, FacePrm, FacePrm, FacePrm, FacePrm, FALSE ) );
+M = MICROSTRCT(BOXTV, 1, list(TILE, 0,0, TRUE, list(2,2,2), TRUE, 0, 1.0, 0, FALSE, FALSE));
+
+view(M, 1);

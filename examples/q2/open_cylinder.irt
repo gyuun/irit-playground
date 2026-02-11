@@ -1,0 +1,5 @@
+# Create a cylinder open at the top and bottom.
+open_cylinder = cylin( vector( 0, 0, 0 ), vector( 0, 0, 1 ), 0.5, 0 );
+
+# Visualize the result
+view( open_cylinder, 1 );
